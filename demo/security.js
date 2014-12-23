@@ -1,8 +1,7 @@
 
 (function(window, document, undefined) {
 
-	var notes_ref = $('<div>');
-	notes_ref.attr('id', 'notes');
+	var notes_ref = $('<div>').attr('id', 'notes');
 
 	$('#window').addClass('js').after(notes_ref);
 
@@ -11,23 +10,22 @@
 	$('#window nav a').click(function() {
 
 		var link = $(this),
-			target_wrapper = $(link.attr('href')),
-			target_notes = target_wrapper.find('footer').clone(),
-			notes_heading = $('<h2 />').text(link.text() + ' Notes');
+			target = $(link.attr('href')),
+			notes_clone = target.find('footer').clone(),
+			notes_heading = $('<h2>').text(link.text() + ' Notes');
 
-		if (target_wrapper.length == 1) {
+		if (target.length == 1) {
 
 			$('#window nav li.focus').removeClass('focus');
-
 			link.closest('li').addClass('focus');
 
 			$('#window section').hide();
-			target_wrapper.show();
+			target.show();
 
 			notes_ref.empty();
-			if (target_notes.length > 0) {
-				target_notes.show();
-				notes_ref.empty().append(notes_heading, target_notes);
+			if (notes_clone.length > 0) {
+				notes_clone.show();
+				notes_ref.empty().append(notes_heading, notes_clone);
 			}
 
 		}
