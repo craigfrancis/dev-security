@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-GB" xml:lang="en-GB" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Security Tab</title>
+
+	<meta charset="UTF-8" />
+
+	<link rel="stylesheet" type="text/css" href="./security.css" media="all" />
+
+</head>
+<body>
+
+	<h1>Security Tab Ideas</h1>
+
+	<div id="window">
+		<nav>
+			<ul>
+				<li><a href="#tls">TLS</a></li>
+				<li><a href="#csp">CSP</a></li>
+				<li><a href="#sri">SRI</a></li>
+				<li><a href="#xss">XSS</a></li>
+				<li><a href="#framed">Framed</a></li>
+				<li><a href="#csrf">CSRF</a></li>
+			</ul>
+		</nav>
+		<section id="tls">
+
+			<h2>Transport Layer Security</h2>
+
+			<table>
+				<tbody>
+					<tr>
+						<td>Organisation</td>
+						<td>Google Inc</td>
+					</tr>
+				</tbody>
+			</table>
+			<table>
+				<tbody>
+					<tr>
+						<td>Certificate Authority</td>
+						<td>Google Internet Authority G2</td>
+					</tr>
+
+					<tr>
+						<td>Valid from</td>
+						<td>10 December 2014 11:44:30</td>
+					</tr>
+					<tr>
+						<td>Valid to</td>
+						<td>10 March 2015 00:00:00</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h3>Protocol Details</h3>
+			<table>
+				<tbody>
+					<tr>
+						<td>TLS</td>
+						<td>1.0, 1.1, 1.2</td>
+					</tr>
+					<tr>
+						<td>SSL</td>
+						<td>2, 3</td>
+					</tr>
+					<tr>
+						<td>Revocation information</td>
+						<td>CRL, OCSP</td>
+					</tr>
+					<tr>
+						<td>Key</td>
+						<td>RSA 2048 bits</td>
+					</tr>
+					<tr>
+						<td>Forward Secrecy</td>
+						<td>With modern browsers</td>
+					</tr>
+					<tr>
+						<td>Next Protocol Negotiation (NPN)</td>
+						<td>Yes (spdy/3.1 spdy/3 http/1.1)</td>
+					</tr>
+					<tr>
+						<td>Session resumption (caching)</td>
+						<td>No (IDs assigned but not accepted)</td>
+					</tr>
+					<tr>
+						<td>Session resumption (tickets)</td>
+						<td>Yes</td>
+					</tr>
+					<tr>
+						<td>OCSP stapling</td>
+						<td>No  This will reduce the time it takes to load your web page.</td>
+					</tr>
+					<tr>
+						<td>Strict Transport Security (HSTS)</td>
+						<td>No  This will instruct browsers to always use HTTPS connections.</td>
+					</tr>
+					<tr>
+						<td>Public Key Pinning (HPKP)</td>
+						<td>No  This will help identify invalid certificates for your domain.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h3>Certification Paths</h3>
+			<h4>Path #1 Trusted</h4>
+			<table class="cert_path">
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>
+							Sent by server = www.google.co.uk<br />
+							Fingerprint: 611ea0807d5dd347435ec0b084304cdbea65df47<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA<br />
+							WEAK SIGNATURE
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>
+							Sent by server = Google Internet Authority G2<br />
+							Fingerprint: bbdce13e9d537a5229915cb123c7aab0a855e798<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA<br />
+							WEAK SIGNATURE
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>
+							In trust store = GeoTrust Global CA   Self-signed<br />
+							Fingerprint: de28f4a4ffe5b92fa3c503d1a349a7f9962a8212<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA<br />
+							Weak or insecure signature, but no impact on root certificate
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<h4>Path #2 Trusted</h4>
+			<table class="cert_path">
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>
+							Sent by server = www.google.co.uk<br />
+							Fingerprint: 611ea0807d5dd347435ec0b084304cdbea65df47<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>
+							Sent by server = Google Internet Authority G2<br />
+							Fingerprint: bbdce13e9d537a5229915cb123c7aab0a855e798<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA<br />
+							WEAK SIGNATURE
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>
+							In trust store = GeoTrust Global CA   Self-signed<br />
+							Fingerprint: de28f4a4ffe5b92fa3c503d1a349a7f9962a8212<br />
+							RSA 2048 bits (e 65537) / SHA1withRSA<br />
+							Weak or insecure signature, but no impact on root certificate
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<footer>
+				<ul>
+					<li>Prominent valid from/to dates.</li>
+					<li>Includes prompts to improve implementation (e.g. OCSP).</li>
+					<li>Output inspired from <a href="https://www.ssllabs.com">ssllabs.com</a>.</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="csp">
+
+			<h2>Content Security Policy</h2>
+
+			<footer>
+				<ul>
+					<li>View the <a href="http://www.w3.org/TR/CSP2/">CSP2 Spec</a>, or the <a href="http://w3c.github.io/webappsec/specs/content-security-policy/">CSP3 Draft</a>.</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="sri">
+
+			<h2>Subresource Integrity</h2>
+
+			<footer>
+				<ul>
+					<li>View the <a href="http://www.w3.org/TR/SRI/">SRI Spec</a>.</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="xss">
+
+			<h2>Cross Site Scripting</h2>
+
+		</section>
+		<section id="framed">
+
+			<h2>Framed Content</h2>
+
+		</section>
+		<section id="csrf">
+
+			<h2>Cross Site Request Forgery</h2>
+
+		</section>
+	</div>
+
+	<script type="text/javascript" src="./jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="./security.js"></script>
+
+</body>
+</html>
