@@ -1,0 +1,114 @@
+
+	html {
+		font: 13px "Lucida Grande";
+		font: menu;
+	}
+
+	h1 {
+		font-size: 1.2em;
+	}
+
+	#window.js {
+		position: relative;
+		background: #FFF url('img/background.jpg') no-repeat 50% 50%;
+		width: 889px;
+		height: 465px;
+		margin: 0 auto;
+	}
+
+	#window.js nav {
+		position: absolute;
+		left: 20px;
+		top: 66px;
+		width: 200px;
+		height: 379px;
+		box-sizing: border-box;
+	}
+
+	#window.js nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 8px 0 0 0;
+	}
+
+	#window.js nav ul li {
+		padding: 2px 10px;
+	}
+
+	#window.js nav ul li.focus {
+		background: #798bb2;
+		color: #FFF;
+	}
+
+	#window.js nav ul li a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	#window section {
+		border: 2px solid #000;
+		padding: 1em;
+		margin: 0 0 1em 0;
+	}
+
+	#window.js section {
+		border: 0;
+		position: absolute;
+		left: 221px;
+		top: 66px;
+		width: 648px;
+		height: 356px;
+		padding: 10px;
+		box-sizing: border-box;
+		overflow: auto;
+	}
+
+	#window section * + * {
+		margin: 1em 0 0 0;
+	}
+
+	#window section h2 {
+		margin: 0;
+		font-size: 1.1em;
+	}
+
+	#window section h3 {
+		font-size: 1em;
+	}
+
+	#window section h3 + table {
+		margin-top: 0;
+	}
+
+	#window section h4 {
+		font-size: 0.85em;
+	}
+
+	#window section h4 + table {
+		margin-top: 0;
+	}
+
+	#window section table {
+		font-size: 0.85em;
+	}
+
+	#window section table th,
+	#window section table td {
+		vertical-align: top;
+	}
+
+	#window section table th:first-child,
+	#window section table td:first-child {
+		width: 16em;
+		text-align: right;
+		padding-right: 1em;
+	}
+
+	#window section table.cert_path th:first-child,
+	#window section table.cert_path td:first-child {
+		width: 2em;
+	}
+
+	#window section footer {
+		border-top: 2px solid #000;
+	}
