@@ -1,7 +1,10 @@
 
 (function(window, document, undefined) {
 
-	$('#window').addClass('js');
+	var notes_ref = $('<div>');
+	notes_ref.attr('id', 'notes');
+
+	$('#window').addClass('js').after(notes_ref);
 
 	$('#window section footer').hide();
 
@@ -21,10 +24,10 @@
 			$('#window section').hide();
 			target_wrapper.show();
 
-			$('#notes').empty();
+			notes_ref.empty();
 			if (target_notes.length > 0) {
 				target_notes.show();
-				$('#notes').empty().append(notes_heading, target_notes);
+				notes_ref.empty().append(notes_heading, target_notes);
 			}
 
 		}
