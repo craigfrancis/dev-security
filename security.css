@@ -97,16 +97,30 @@
 		vertical-align: top;
 	}
 
-	#window section table th:first-child,
-	#window section table td:first-child {
+	#window section#tls table th:first-child,
+	#window section#tls table td:first-child {
 		width: 16em;
 		text-align: right;
 		padding-right: 1em;
 	}
 
-	#window section table.cert_path th:first-child,
-	#window section table.cert_path td:first-child {
+	#window section#tls table.cert_path th:first-child,
+	#window section#tls table.cert_path td:first-child {
 		width: 2em;
+	}
+
+	#window section#csp table tbody th {
+		text-align: right;
+		width: 10em;
+	}
+
+	#window section#csp table td {
+		padding-left: 1em;
+	}
+
+	#window section#csp table td strong {
+		font-weight: normal;
+		color: #F00;
 	}
 
 	#window section footer {

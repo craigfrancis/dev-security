@@ -42,7 +42,6 @@
 						<td>Certificate Authority</td>
 						<td>Google Internet Authority G2</td>
 					</tr>
-
 					<tr>
 						<td>Valid from</td>
 						<td>10 December 2014 11:44:30</td>
@@ -181,6 +180,110 @@
 		<section id="csp">
 
 			<h2>Content Security Policy</h2>
+
+			<table>
+				<tbody>
+
+					<tr>
+						<th rowspan="1" scope="row">default-src</th>
+						<td>'none'</td>
+						<td>Nice one! this is a good default!</td>
+					</tr>
+
+					<tr>
+						<th rowspan="1" scope="row">form-action</th>
+						<td>'self'</td>
+						<td>Can you specify a path?</td>
+					</tr>
+
+					<tr>
+						<th rowspan="3" scope="row">style-src</th>
+						<td>'self'</td>
+						<td>Can you specify a path?</td>
+					</tr>
+					<tr>
+						<td>'<strong>unsafe-inline</strong>'</td>
+						<td>Can introduce security issues!</td>
+					</tr>
+					<tr>
+						<td>https://*.googleapis.com</td>
+						<td>Can you specify a path, and remove wildcard?</td>
+					</tr>
+
+					<tr>
+						<th rowspan="2" scope="row">font-src</th>
+						<td>'self'</td>
+						<td>Can you specify a path?</td>
+					</tr>
+					<tr>
+						<td>https://fonts.gstatic.com</td>
+						<td>Can you specify a path?</td>
+					</tr>
+
+					<tr>
+						<th rowspan="1" scope="row">img-src</th>
+						<td><strong>*</strong></td>
+						<td>Might be a bit permissive?</td>
+					</tr>
+
+					<tr>
+						<th rowspan="6" scope="row">script-src</th>
+						<td>'self'</td>
+						<td>Can you specify a path?</td>
+					</tr>
+					<tr>
+						<td>https://www.google-analytics.com</td>
+						<td>Can you specify a path?</td>
+					</tr>
+					<tr>
+						<td>https://*.googleapis.com</td>
+						<td>Can you specify a path, and remove wildcard?</td>
+					</tr>
+					<tr>
+						<td>https://*.gstatic.com</td>
+						<td>Can you specify a path, and remove wildcard?</td>
+					</tr>
+					<tr>
+						<td>'<strong>unsafe-inline</strong>'</td>
+						<td>Can introduce security issues!</td>
+					</tr>
+					<tr>
+						<td>'<strong>unsafe-eval</strong>'</td>
+						<td>Can introduce security issues!</td>
+					</tr>
+
+					<tr>
+						<th rowspan="1" scope="row">frame-ancestors</th>
+						<td>'self'</td>
+						<td>Nice one, but could it be 'none'?</td>
+					</tr>
+
+					<tr>
+						<th rowspan="1" scope="row">reflected-xss</th>
+						<td>block</td>
+						<td>Nice one! this is a good default!</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<h3>Unused</h3>
+
+			<table>
+				<tbody>
+
+					<tr>
+						<th rowspan="1" scope="row">base-uri</th>
+						<td>&#xA0;</td>
+					</tr>
+
+					<tr>
+						<th rowspan="1" scope="row">child-src</th>
+						<td>&#xA0;</td>
+					</tr>
+
+				</tbody>
+			</table>
 
 			<footer>
 				<ul>
