@@ -60,7 +60,7 @@
 	https_wrapper.append(https_checkbox, https_label);
 	https_checkbox.change(https_mode).change();
 
-	$('h1').after(https_wrapper);
+	$('p#intro').after(https_wrapper);
 
 })(window, document);
 
