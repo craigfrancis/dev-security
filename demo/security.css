@@ -1,3 +1,5 @@
+/*--------------------------------------------------*/
+/* Main                                             */
 
 	html {
 		font: 13px "Lucida Grande";
@@ -8,6 +10,58 @@
 		font-size: 1.2em;
 	}
 
+/*--------------------------------------------------*/
+/* Icons                                            */
+
+	#window em.icon {
+		background: url('./img/icons.png') no-repeat 0 0;
+		float: left;
+		margin: 2px 4px 0 0;
+		width: 10px;
+		height: 10px;
+		text-indent: -5000px;
+	}
+
+	#window em.icon_2 {
+		background-position: 0 -10px;
+	}
+
+	#window em.icon_3 {
+		background-position: 0 -20px;
+	}
+
+	#window.http em.icon.https {
+		background-position: 0 0;
+	}
+
+	#window em.icon_open {
+		background-position: -10px 0;
+	}
+
+	#window em.icon_closed {
+		background-position: -10px -10px;
+	}
+
+/*--------------------------------------------------*/
+/* HTTP/HTTPS content                               */
+
+	#window.http div.https,
+	#window.https div.http,
+	#window.https div.http_warning {
+		display: none;
+	}
+
+	#window.http div.http_warning p {
+		background: #A00;
+		color: #FFF;
+		text-align: center;
+		padding: 4px 0;
+		margin: 1em 0;
+	}
+
+/*--------------------------------------------------*/
+/* Window                                           */
+
 	#window.js {
 		position: relative;
 		background: #FFF url('img/background.jpg') no-repeat 50% 50%;
@@ -15,6 +69,9 @@
 		height: 465px;
 		margin: 0 auto;
 	}
+
+/*--------------------------------------------------*/
+/* Navigation                                       */
 
 	#window.js nav {
 		position: absolute;
@@ -25,14 +82,24 @@
 		box-sizing: border-box;
 	}
 
-	#window.js nav ul {
+	#window nav ul {
 		list-style: none;
+		margin: 1em;
+		padding: 0;
+	}
+
+	#window.js nav ul {
 		margin: 0;
 		padding: 8px 0 0 0;
 	}
 
 	#window.js nav ul li {
 		padding: 2px 10px;
+	}
+
+	#window.js nav ul li em.icon {
+		float: right;
+		margin: 3px 0 0 0;
 	}
 
 	#window.js nav ul li.focus {
@@ -43,7 +110,11 @@
 	#window.js nav ul li a {
 		color: inherit;
 		text-decoration: none;
+		display: block;
 	}
+
+/*--------------------------------------------------*/
+/* Section                                          */
 
 	#window section {
 		border: 2px solid #000;
@@ -60,10 +131,11 @@
 		height: 356px;
 		padding: 10px;
 		box-sizing: border-box;
-		overflow: auto;
+		overflow: scroll;
 	}
 
-	#window section * + * {
+	#window section > * + *,
+	#window section table + table {
 		margin: 1em 0 0 0;
 	}
 
@@ -88,6 +160,14 @@
 		margin-top: 0;
 	}
 
+	#window section .warning {
+		color: #F00;
+	}
+
+	#window section em.warning {
+		font-style: normal;
+	}
+
 	#window section table {
 		font-size: 0.85em;
 	}
@@ -96,6 +176,37 @@
 	#window section table td {
 		vertical-align: top;
 	}
+
+	#window section div.resource h4 {
+		margin-bottom: 0;
+	}
+
+	#window section div.resource p {
+		margin: 2px 0;
+		padding-left: 14px;
+	}
+
+	#window section div.resource ul {
+		margin: 2px 0;
+		padding-left: 28px;
+		list-style: none;
+	}
+
+	#window section div.value h4 {
+		margin-bottom: 0;
+	}
+
+	#window section div.value p {
+		margin: 2px 0;
+		padding-left: 14px;
+	}
+
+	#window section footer {
+		border-top: 2px solid #000;
+	}
+
+/*--------------------------------------------------*/
+/* TLS                                              */
 
 	#window section#tls table th:first-child,
 	#window section#tls table td:first-child {
@@ -109,20 +220,22 @@
 		width: 2em;
 	}
 
+	#window section#tls table.cert_path td span {
+		display: block;
+	}
+
+	#window section#tls table.cert_path td span.indent {
+		padding-left: 14px;
+	}
+
+/*--------------------------------------------------*/
+/* CSP                                              */
+
 	#window section#csp table tbody th {
 		text-align: right;
-		width: 10em;
+		width: 11em;
 	}
 
 	#window section#csp table td {
 		padding-left: 1em;
-	}
-
-	#window section#csp table td strong {
-		font-weight: normal;
-		color: #F00;
-	}
-
-	#window section footer {
-		border-top: 2px solid #000;
 	}
