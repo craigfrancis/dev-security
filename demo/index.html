@@ -20,7 +20,7 @@
 			<ul>
 				<li><a href="#tls">   <span>TLS</span>    <em class="icon icon_2 https">Notice</em> </a></li>
 				<li><a href="#csp">   <span>CSP</span>    <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#sri">   <span>SRI</span>    <em class="icon icon_2 https">Notice</em> </a></li>
+				<li><a href="#sri">   <span>SRI</span>    <em class="icon icon_1 https">Error</em>  </a></li>
 				<li><a href="#xss">   <span>XSS</span>    <em class="icon icon_3 https">Good</em>   </a></li>
 				<li><a href="#framed"><span>Framed</span> <em class="icon icon_2 https">Notice</em> </a></li>
 				<li><a href="#csrf">  <span>CSRF</span>   <em class="icon icon_1 https">Error</em>  </a></li>
@@ -375,26 +375,36 @@
 			</div>
 
 			<div class="resource">
-				<h4><em class="icon icon_open">+</em> https://code.jquery.com/jquery-1.10.2.min.js</h4>
+				<h4>https://code.jquery.com/jquery-1.10.2.min.js</h4>
 				<p>ni:///sha-256;C6cv9UyIs9uJeqinPHxthvqh_E1uhG5Twh-Y5qFQmYg?ct=application/javascript</p>
 				<p><em class="icon icon_3">Good</em> https://code.jquery.com/jquery-1.10.2.min.js</p>
 			</div>
 
 			<div class="resource">
-				<h4><em class="icon icon_open">+</em> https://www.example.com/script.js</h4>
+				<h4>https://www.example.com/script.js</h4>
 				<p>ni:///sha-256;asijfiqu4t12eqinPHWTHVqh_E1uhG5Twhakwoeji3W?ct=application/javascript</p>
 				<p><em class="icon icon_3">Good</em> https://www.example.com/script.js</p>
 				<p><em class="icon icon_3">Good</em> https://cdn.example.com/script.js (<strong>noncanonical</strong>)</p>
 			</div>
 
 			<div class="resource">
-				<h4><em class="icon icon_open">+</em> https://www.example.com/unchecked.js</h4>
+				<h4>http://www.example.com/script.js</h4>
+				<p>ni:///sha-256;asijfiqu4t12eqinPHWTHVqh_E1uhG5Twhakwoeji3W?ct=application/javascript</p>
+				<p><em class="icon icon_3">Good</em> http://www.example.com/script.js</p>
+				<div class="https">
+					<p><em class="icon icon_1">Error</em> HTTPS was used for the main connection, so resources must also be encrypted.</p>
+				</div>
+			</div>
+
+			<div class="resource">
+				<h4>https://www.google-analytics.com/analytics.js</h4>
 				<p><em class="icon icon_2">Notice</em> No integrity check included.</p>
 			</div>
 
 			<footer>
 				<ul>
 					<li>View the <a href="http://www.w3.org/TR/SRI/">SRI Spec</a>.</li>
+					<li>Ensure developers don't think that loading resources over HTTP, with an integrity check, is acceptable.</li>
 				</ul>
 			</footer>
 
