@@ -236,6 +236,15 @@
 		width: 11em;
 	}
 
-	#window section#csp table td {
-		padding-left: 1em;
+	#window section#csp table td.help {
+		padding-left: 14px;
+	}
+
+	#window section#csp table tr.usage td {
+		padding-left: 15px;
+		color: #AAA;
+	}
+
+	#window section#csp table tr.usage + tr:not(.usage) td {
+		padding-top: 1em;
 	}
