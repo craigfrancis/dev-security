@@ -7,4 +7,4 @@ Inspiration from Joel and Chris on the Google Chrome [security-dev](https://grou
 
 And there is an [interactive demo](https://craigfrancis.github.io/dev-security/).
 
-[![Screenshot](https://raw.githubusercontent.com/craigfrancis/dev-security/master/resources/TLS-1.jpg)](https://craigfrancis.github.io/dev-security/)
+[![Screenshot](https://raw.githubusercontent.com/craigfrancis/dev-security/master/resources/CSP.jpg)](https://craigfrancis.github.io/dev-security/)
