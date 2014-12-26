@@ -212,78 +212,90 @@
 
 					<tr>
 						<th rowspan="1" scope="row">default-src</th>
-						<td>'none'</td>
-						<td><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
+						<td class="value"><em class="icon icon_closed">-</em> 'none'</td>
+						<td class="help"><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
 					</tr>
 
 					<tr>
 						<th rowspan="3" scope="row">style-src</th>
-						<td>'self'</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path?</td>
+						<td class="value"><em class="icon icon_closed">-</em> 'self'</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify a path?</td>
 					</tr>
 					<tr>
-						<td>'<em class="warning">unsafe-inline</em>'</td>
-						<td><em class="icon icon_1">Error</em> Can introduce security issues!</td>
+						<td class="value"><em class="icon icon_closed">-</em> '<em class="warning">unsafe-inline</em>'</td>
+						<td class="help"><em class="icon icon_1">Error</em> Can introduce security issues!</td>
 					</tr>
 					<tr>
-						<td>https://*.googleapis.com</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path, and remove wildcard?</td>
+						<td class="value"><em class="icon icon_closed">-</em> https://*.googleapis.com</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify a path, and remove wildcard?</td>
 					</tr>
 
 					<tr>
 						<th rowspan="2" scope="row">font-src</th>
-						<td>'self'</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path?</td>
+						<td class="value"><em class="icon icon_closed">-</em> 'self'</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify a path?</td>
 					</tr>
 					<tr>
-						<td>https://fonts.gstatic.com</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path?</td>
+						<td class="value"><em class="icon icon_closed">-</em> https://fonts.gstatic.com</td>
+						<td class="help"><em class="icon icon_2">Notice</em> Not used on this page?</td>
 					</tr>
 
 					<tr>
 						<th rowspan="1" scope="row">img-src</th>
-						<td><em class="warning">*</em></td>
-						<td><em class="icon icon_2">Notice</em> Might be a bit permissive?</td>
+						<td class="value"><em class="icon icon_closed">-</em> <em class="warning">*</em></td>
+						<td class="help"><em class="icon icon_2">Notice</em> Might be a bit permissive?</td>
 					</tr>
 
 					<tr>
-						<th rowspan="5" scope="row">script-src</th>
-						<td>'self'</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path?</td>
+						<th rowspan="9" scope="row">script-src</th>
+						<td class="value"><em class="icon icon_open">+</em> 'self'</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify /a/js/ as a path?</td>
+					</tr>
+					<tr class="usage">
+						<td colspan="2">/a/js/jquery-1.11.2.js</td>
+					</tr>
+					<tr class="usage">
+						<td colspan="2">/a/js/navigation.js</td>
+					</tr>
+					<tr class="usage">
+						<td colspan="2">/a/js/main.js</td>
 					</tr>
 					<tr>
-						<td>https://www.google-analytics.com</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path?</td>
+						<td class="value"><em class="icon icon_open">+</em> https://www.google-analytics.com</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify the full url?</td>
+					</tr>
+					<tr class="usage">
+						<td colspan="2">https://www.google-analytics.com/analytics.js</td>
 					</tr>
 					<tr>
-						<td>https://*.googleapis.com</td>
-						<td><em class="icon icon_3">Good</em> Can you specify a path, and remove wildcard?</td>
+						<td class="value"><em class="icon icon_closed">-</em> https://*.googleapis.com</td>
+						<td class="help"><em class="icon icon_3">Good</em> Can you specify a path, and remove wildcard?</td>
 					</tr>
 					<tr>
-						<td>'<em class="warning">unsafe-inline</em>'</td>
-						<td><em class="icon icon_1">Error</em> Can introduce security issues!</td>
+						<td class="value"><em class="icon icon_closed">-</em> '<em class="warning">unsafe-inline</em>'</td>
+						<td class="help"><em class="icon icon_1">Error</em> Can introduce security issues!</td>
 					</tr>
 					<tr>
-						<td>'<em class="warning">unsafe-eval</em>'</td>
-						<td><em class="icon icon_1">Error</em> Can introduce security issues!</td>
+						<td class="value"><em class="icon icon_closed">-</em> '<em class="warning">unsafe-eval</em>'</td>
+						<td class="help"><em class="icon icon_1">Error</em> Can introduce security issues!</td>
 					</tr>
 
 					<tr>
 						<th rowspan="1" scope="row">frame-ancestors</th>
-						<td>'self'</td>
-						<td><em class="icon icon_2">Notice</em> This page isn't in a frame, could it be 'none'?</td>
+						<td class="value"><em class="icon icon_closed">-</em> 'self'</td>
+						<td class="help"><em class="icon icon_2">Notice</em> This page isn't in a frame, could it be 'none'?</td>
 					</tr>
 
 					<tr>
 						<th rowspan="1" scope="row">referrer</th>
-						<td>no-referrer</td>
-						<td><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
+						<td class="value"><em class="icon icon_closed">-</em> no-referrer</td>
+						<td class="help"><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
 					</tr>
 
 					<tr>
 						<th rowspan="1" scope="row">reflected-xss</th>
-						<td>block</td>
-						<td><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
+						<td class="value"><em class="icon icon_closed">-</em> block</td>
+						<td class="help"><em class="icon icon_3">Good</em> Nice one! this is a good default!</td>
 					</tr>
 
 				</tbody>
@@ -294,53 +306,53 @@
 				<tbody>
 					<tr>
 						<th rowspan="1" scope="row">base-uri</th>
-						<td><em class="warning">*</em></td>
-						<td>Limits the &lt;base&gt; href values - used for relative URLs.</td>
+						<td class="value"><em class="warning">*</em></td>
+						<td class="help">Limits the &lt;base&gt; href values - used for relative URLs.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">child-src</th>
-						<td>'none'</td>
-						<td>Limits nested browsing contexts (incorporating frame-src)</td>
+						<td class="value">'none'</td>
+						<td class="help">Limits nested browsing contexts (incorporating frame-src)</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">connect-src</th>
-						<td>'none'</td>
-						<td>Restricts where connections can be made to (e.g. AJAX requests).</td>
+						<td class="value">'none'</td>
+						<td class="help">Restricts where connections can be made to (e.g. AJAX requests).</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">form-action</th>
-						<td><em class="warning">*</em></td>
-						<td>Restricts where your forms can send data to.</td>
+						<td class="value"><em class="warning">*</em></td>
+						<td class="help">Restricts where your forms can send data to.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">manifest-src</th>
-						<td>'none'</td>
-						<td>Restricts application manifests can be applied.</td>
+						<td class="value">'none'</td>
+						<td class="help">Restricts application manifests can be applied.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">media-src</th>
-						<td>'none'</td>
-						<td>Restricts video, audio, and associated text that can be loaded.</td>
+						<td class="value">'none'</td>
+						<td class="help">Restricts video, audio, and associated text that can be loaded.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">object-src</th>
-						<td>'none'</td>
-						<td>Restricts plugins that can be loaded.</td>
+						<td class="value">'none'</td>
+						<td class="help">Restricts plugins that can be loaded.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">plugin-types</th>
-						<td><em class="warning">*</em></td>
-						<td>Restricts plugin types (based on mime type), cannot be 'none'.</td>
+						<td class="value"><em class="warning">*</em></td>
+						<td class="help">Restricts plugin types (based on mime type), cannot be 'none'.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">report-uri</th>
-						<td>&#xA0;</td>
-						<td>URL to send error reports to.</td>
+						<td class="value">&#xA0;</td>
+						<td class="help">URL to send error reports to.</td>
 					</tr>
 					<tr>
 						<th rowspan="1" scope="row">sandbox</th>
-						<td>&#xA0;</td>
-						<td>Applies restrictions based on &lt;iframe&gt; sandbox attribute.</td>
+						<td class="value">&#xA0;</td>
+						<td class="help">Applies restrictions based on &lt;iframe&gt; sandbox attribute.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -348,6 +360,7 @@
 			<footer>
 				<ul>
 					<li>View the <a href="http://www.w3.org/TR/CSP2/">CSP2 Spec</a>, or the <a href="http://w3c.github.io/webappsec/specs/content-security-policy/">CSP3 Draft</a>.</li>
+					<li>Can show which sources were used.</li>
 					<li>In this example the defaults show 'none', because the default-src is set to 'none'.</li>
 				</ul>
 			</footer>
