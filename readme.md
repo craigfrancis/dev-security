@@ -14,6 +14,6 @@ And there is an [interactive demo](https://craigfrancis.github.io/dev-security/)
 Feature requests:
 
 - Chrome (issue [445359](https://code.google.com/p/chromium/issues/detail?id=445359))
-- FireFox (suggestion [6896989](https://ffdevtools.uservoice.com/forums/246087-firefox-developer-tools-ideas/suggestions/6896989-security-tab-to-show-tls-ssl-csp-sri-etc-feat))
+- Firefox (suggestion [6896989](https://ffdevtools.uservoice.com/forums/246087-firefox-developer-tools-ideas/suggestions/6896989-security-tab-to-show-tls-ssl-csp-sri-etc-feat))
 - Safari (bug report 19355985)
 - Internet Explorer (email sent)
