@@ -18,12 +18,19 @@
 	<div id="window" class="https">
 		<nav>
 			<ul>
-				<li><a href="#tls">   <span>TLS</span>    <em class="icon icon_2 https">Notice</em> </a></li>
-				<li><a href="#csp">   <span>CSP</span>    <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#sri">   <span>SRI</span>    <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#xss">   <span>XSS</span>    <em class="icon icon_3 https">Good</em>   </a></li>
-				<li><a href="#framed"><span>Framed</span> <em class="icon icon_2 https">Notice</em> </a></li>
-				<li><a href="#csrf">  <span>CSRF</span>   <em class="icon icon_1 https">Error</em>  </a></li>
+				<li>
+					<a href="#tls" title="Transport Layer Security"><span>TLS</span> <em class="icon icon_2 https">Notice</em></a>
+					<ul>
+						<li><a href="#tls-certs" title="Certificates">                   <span>Certificates</span> <em class="icon icon_1 https">Error</em></a></li>
+						<li><a href="#tls-hsts"  title="HTTP Strict Transport Security"> <span>HSTS</span>          <em class="icon icon_2 https">Notice</em></a></li>
+						<li><a href="#tls-hpkp"  title="HTTP Public Key Pinning">        <span>HPKP</span>          <em class="icon icon_2 https">Notice</em></a></li>
+					</ul>
+				</li>
+				<li><a href="#csp"    title="Content Security Policy">    <span>CSP</span>    <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#sri"    title="Subresource Integrity">      <span>SRI</span>    <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#xss"    title="Cross Site Scripting">       <span>XSS</span>    <em class="icon icon_3 https">Good</em>   </a></li>
+				<li><a href="#framed" title="Framed">                     <span>Framed</span> <em class="icon icon_2 https">Notice</em> </a></li>
+				<li><a href="#csrf"   title="Cross Site Request Forgery"> <span>CSRF</span>   <em class="icon icon_1 https">Error</em>  </a></li>
 			</ul>
 		</nav>
 		<section id="tls">
@@ -100,19 +107,32 @@
 							<td>OCSP stapling</td>
 							<td><em class="icon icon_3">Good</em> Yes - This reduces the time it takes to load your web page.</td>
 						</tr>
-						<tr>
-							<td>Strict Transport Security (HSTS)</td>
-							<td><em class="icon icon_2">Notice</em> No - This will instruct browsers to always use HTTPS connections.</td>
-						</tr>
-						<tr>
-							<td>Public Key Pinning (HPKP)</td>
-							<td><em class="icon icon_2">Notice</em> No - This will help identify invalid certificates for your domain.</td>
-						</tr>
 					</tbody>
 				</table>
 
-				<h3>Certification Paths</h3>
-				<h4>Path #1 Trusted</h4>
+			</div>
+
+			<footer>
+				<ul>
+					<li>Prominent valid from/to dates.</li>
+					<li>Includes prompts to improve implementation (e.g. OCSP).</li>
+					<li>Could include cipher suite used.</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="tls-certs">
+
+			<h2>Certificate Paths</h2>
+
+			<div class="http">
+				<p>This page was loaded over HTTP.</p>
+			</div>
+
+			<div class="https">
+
+				<h3>Path #1 Trusted</h3>
+
 				<table class="cert_path">
 					<tbody>
 						<tr>
@@ -136,7 +156,7 @@
 						<tr>
 							<td>3</td>
 							<td>
-								<span><em class="icon icon_3">Good</em> <strong>In trust store</strong> - GeoTrust Global CA</span>
+								<span><em class="icon icon_1">Error</em> <strong class="warning">Extra download</strong> (already in trust store) - GeoTrust Global CA</span>
 								<span class="indent">Fingerprint: de28f4a4ffe5b92fa3c503d1a349a7f9962a8212</span>
 								<span class="indent">RSA 2048 bits (e 65537) / SHA1withRSA</span>
 								<span class="indent"><em class="icon icon_2">Notice</em> Weak or insecure signature, but no impact on root certificate</span>
@@ -144,7 +164,9 @@
 						</tr>
 					</tbody>
 				</table>
-				<h4>Path #2 Trusted</h4>
+
+				<h3>Path #2 Trusted</h3>
+
 				<table class="cert_path">
 					<tbody>
 						<tr>
@@ -168,7 +190,7 @@
 						<tr>
 							<td>3</td>
 							<td>
-								<span><em class="icon icon_1">Error</em> <strong class="warning">Extra download</strong> - GeoTrust Global CA</span>
+								<span><em class="icon icon_1">Error</em> <strong class="warning">Not provided</strong> - GeoTrust Global CA</span>
 								<span class="indent">Fingerprint: 7359755c6df9a0abc3060bce369564c8ec4542a3</span>
 								<span class="indent">RSA 2048 bits (e 65537)	/ SHA1withRSA</span>
 								<span class="indent"><em class="icon icon_2">Notice</em> WEAK SIGNATURE</span>
@@ -191,13 +213,88 @@
 
 			<footer>
 				<ul>
-					<li>Prominent valid from/to dates.</li>
-					<li>Includes prompts to improve implementation (e.g. OCSP).</li>
+					<li>Includes an example where a root certificate is provided (path 1, cert 3).</li>
 					<li>Includes an example where an intermediate certificate is not included (path 2, cert 3).</li>
 					<li>Output inspired from <a href="https://www.ssllabs.com/ssltest/index.html">ssllabs.com</a>.</li>
-					<li>HSTS and HPKP examples could be given if not used (with warnings).</li>
 				</ul>
 			</footer>
+
+		</section>
+		<section id="tls-hsts">
+
+			<h2>HTTP Strict Transport Security</h2>
+
+			<div class="http">
+				<p>This page was loaded over HTTP.</p>
+			</div>
+
+			<div class="https">
+
+				<p>This instructs browsers to always use HTTPS connections.</p>
+
+				<div class="value">
+					<p><em class="icon icon_2">Notice</em> Not specified.</p>
+				</div>
+
+				<p>If you want everyone to connect over HTTPS for the next 365 days, include the following header:</p>
+
+				<p class="code">
+					<code>Strict-Transport-Security: max-age=31536000; includeSubDomains;</code>
+				</p>
+
+			</div>
+
+		</section>
+		<section id="tls-hpkp">
+
+			<h2>HTTP Public Key Pinning</h2>
+
+			<div class="http">
+				<p>This page was loaded over HTTP.</p>
+			</div>
+
+			<div class="https">
+
+				<p>This helps identify invalid certificates for your domain.</p>
+
+				<div class="value">
+					<p><em class="icon icon_2">Notice</em> Not specified.</p>
+				</div>
+
+				<p>If you want to limit the valid certificates for your domain, follow the instructions below.</p>
+
+				<hr />
+
+				<p>1) Create a backup key and <abbr title="Certificate Signing Request">CSR</abbr>:</p>
+
+				<p class="code">
+					<code>openssl genrsa -out "backup.key" 2048;</code>
+					<code>openssl req -new -key "backup.key" -out "backup.csr";</code>
+				</p>
+
+				<p>2) Store the these files in a safe place (not on your server).</p>
+
+				<p>3) Extract the base 64-encoded <abbr title="Subject Public Key Information">SPKI</abbr> fingerprint:</p>
+
+				<p class="code">
+					<code>openssl req -inform pem -pubkey -noout &lt; "backup.csr" | </code>
+					<code>&#xA0;&#xA0; openssl asn1parse -inform pem | </code>
+					<code>&#xA0;&#xA0; openssl dgst -sha256 -binary | </code>
+					<code>&#xA0;&#xA0; base64</code>
+				</p>
+
+				<p>4) Include the following header:</p>
+
+				<p class="code">
+					<code>Public-Key-Pins: max-age=2592000;</code>
+					<code>&#xA0;&#xA0; pin-sha256="OtJOVJ9HkPkdvrP3WBYf3CLY8dTaf/dmgsI9T4wT9Dw=";</code>
+					<code>&#xA0;&#xA0; pin-sha256="<strong class="warning">***Backup Pin***</strong>";</code>
+					<code>&#xA0;&#xA0; report-uri="http://example.com/hpkp-report";</code>
+				</p>
+
+				<p>Note: This example pins your current certificate for 30 days. You could alternatively pin a root or intermediate certificate, which might allow you to re-issue your certificate, but that assumes that your <abbr title="Certificate Authority">CA</abbr> will continue to use the same root/intermediate certificate.</p>
+
+			</div>
 
 		</section>
 		<section id="csp">
