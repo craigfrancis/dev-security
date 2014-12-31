@@ -239,7 +239,7 @@
 				<p>If you want everyone to connect over HTTPS for the next 365 days, include the following header:</p>
 
 				<p class="code">
-					<code>Strict-Transport-Security: max-age=31536000; includeSubDomains;</code>
+					<code>Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;</code>
 				</p>
 
 			</div>
@@ -278,17 +278,19 @@
 
 				<p class="code">
 					<code>openssl req -inform pem -pubkey -noout &lt; "backup.csr" | </code>
-					<code>&#xA0;&#xA0; openssl asn1parse -inform pem | </code>
+					<code>&#xA0;&#xA0; openssl pkey -pubin -outform der | </code>
 					<code>&#xA0;&#xA0; openssl dgst -sha256 -binary | </code>
 					<code>&#xA0;&#xA0; base64</code>
 				</p>
 
-				<p>4) Include the following header:</p>
+				<p>4) Include the following (report only mode):</p>
 
 				<p class="code">
-					<code>Public-Key-Pins: max-age=2592000;</code>
+					<code>Public-Key-Pins-Report-Only:</code>
 					<code>&#xA0;&#xA0; pin-sha256="OtJOVJ9HkPkdvrP3WBYf3CLY8dTaf/dmgsI9T4wT9Dw=";</code>
 					<code>&#xA0;&#xA0; pin-sha256="<strong class="warning">***Backup Pin***</strong>";</code>
+					<code>&#xA0;&#xA0; max-age=2592000;</code>
+					<code>&#xA0;&#xA0; includeSubDomains;</code>
 					<code>&#xA0;&#xA0; report-uri="http://example.com/hpkp-report";</code>
 				</p>
 
