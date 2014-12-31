@@ -1,5 +1,4 @@
 
-
 if (window.location.host == 'craigfrancis.github.io') {
 
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,8 +30,8 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 		if (target.length == 1) {
 
-			$('#window nav li.focus').removeClass('focus');
-			link_ref.closest('li').addClass('focus');
+			$('#window nav a.focus').removeClass('focus');
+			link_ref.addClass('focus');
 
 			$('#window section').hide();
 			target.show();
@@ -57,7 +56,7 @@ if (window.location.host == 'craigfrancis.github.io') {
 	});
 
 	var hash = window.location.hash;
-	if (hash.match(/^#[a-z]+$/)) {
+	if (hash.match(/^#[a-z\-]+$/)) {
 		$('#window nav a[href="' + hash + '"]').click();
 	} else {
 		$('#window nav a[href="#tls"]').click();
