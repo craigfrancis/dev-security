@@ -257,46 +257,43 @@
 
 			<div class="https">
 
-				<p>This helps identify invalid certificates for your domain.</p>
+				<p>Identify invalid certificates for this domain.</p>
 
 				<div class="value">
-					<p><em class="icon icon_2">Notice</em> Not specified.</p>
+					<p><em class="icon icon_2">Notice</em> Header not specified.</p>
 				</div>
 
 				<p>If you want to limit the valid certificates for your domain, follow the instructions below.</p>
 
 				<hr />
 
-				<p>1) Create a backup key and <abbr title="Certificate Signing Request">CSR</abbr>:</p>
+				<p>1) Create a backup key (to be used with a <abbr title="Certificate Signing Request">CSR</abbr> later):</p>
 
 				<p class="code">
 					<code>openssl genrsa -out "backup.key" 2048;</code>
-					<code>openssl req -new -key "backup.key" -out "backup.csr";</code>
 				</p>
 
-				<p>2) Store the these files in a safe place (not on your server).</p>
+				<p>2) Store this key in a safe place (not on your server).</p>
 
-				<p>3) Extract the base 64-encoded <abbr title="Subject Public Key Information">SPKI</abbr> fingerprint:</p>
+				<p>3) Extract the base-64 encoded <abbr title="Subject Public Key Information">SPKI</abbr> fingerprint:</p>
 
 				<p class="code">
-					<code>openssl req -inform pem -pubkey -noout &lt; "backup.csr" | </code>
-					<code>&#xA0;&#xA0; openssl pkey -pubin -outform der | </code>
-					<code>&#xA0;&#xA0; openssl dgst -sha256 -binary | </code>
-					<code>&#xA0;&#xA0; base64</code>
+					<code>openssl rsa  -in "backup.key" -outform der -pubout | </code>
+					<code>&#xA0;&#xA0; openssl dgst -sha256 -binary | base64</code>
 				</p>
 
-				<p>4) Include the following (report only mode):</p>
+				<p>4) Include the following header (report only mode):</p>
 
 				<p class="code">
 					<code>Public-Key-Pins-Report-Only:</code>
 					<code>&#xA0;&#xA0; pin-sha256="OtJOVJ9HkPkdvrP3WBYf3CLY8dTaf/dmgsI9T4wT9Dw=";</code>
-					<code>&#xA0;&#xA0; pin-sha256="<strong class="warning">***Backup Pin***</strong>";</code>
+					<code>&#xA0;&#xA0; pin-sha256="<strong class="warning">***Backup Fingerprint***</strong>";</code>
 					<code>&#xA0;&#xA0; max-age=2592000;</code>
 					<code>&#xA0;&#xA0; includeSubDomains;</code>
-					<code>&#xA0;&#xA0; report-uri="http://example.com/hpkp-report";</code>
+					<code>&#xA0;&#xA0; report-uri="<strong class="warning">http://example.com/hpkp-report</strong>";</code>
 				</p>
 
-				<p><strong>Note</strong>: This example pins your current and backup certificates for 30 days. Alternatively you could pin the root or intermediate certificates, which might allow you to re-issue your certificate, but that assumes that your <abbr title="Certificate Authority">CA</abbr> will continue to use the same root/intermediate certificate, even if they have a problem.</p>
+				<p><strong>Note</strong>: This example pins your current and backup keys for 30 days. Alternatively you could pin the root or intermediate certificates, which might allow you to re-issue a new certificate, but that assumes that your <abbr title="Certificate Authority">CA</abbr> will continue to use the same root/intermediate certificate, even if they have a problem.</p>
 
 			</div>
 
