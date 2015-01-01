@@ -230,13 +230,15 @@
 
 			<div class="https">
 
-				<p>This instructs browsers to always use HTTPS connections.</p>
+				<p>Instruct browsers to always use HTTPS connections.</p>
 
 				<div class="value">
-					<p><em class="icon icon_2">Notice</em> Not specified.</p>
+					<p><em class="icon icon_2">Notice</em> HTTP website does not 301 redirect to HTTPS.</p>
+					<p><em class="icon icon_2">Notice</em> Header not specified (see below).</p>
+					<p><em class="icon icon_2">Notice</em> Not included in this browsers preload list (<a href="https://hstspreload.appspot.com/">add</a>).</p>
 				</div>
 
-				<p>If you want everyone to connect over HTTPS for the next 365 days, include the following header:</p>
+				<p>If you want everyone to connect over HTTPS, include the following header:</p>
 
 				<p class="code">
 					<code>Strict-Transport-Security: max-age=31536000; includeSubDomains; preload;</code>
