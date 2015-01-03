@@ -264,3 +264,27 @@
 	#window section#csp table tr.usage + tr:not(.usage) td {
 		padding-top: 1em;
 	}
+
+/*--------------------------------------------------*/
+/* Cookies                                          */
+
+	#window section#cookies table th,
+	#window section#cookies table td {
+		padding-right: 1em;
+		text-align: left;
+	}
+
+	#window section#cookies table tbody th {
+		text-align: right;
+		padding-left: 1em;
+	}
+
+	#window section#cookies table thead th.result {
+		text-align: center;
+	}
+
+	#window section#cookies table tbody td.result em {
+		float: none;
+		display: block;
+		margin: 2px auto 0 auto;
+	}
