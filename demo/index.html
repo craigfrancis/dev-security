@@ -26,11 +26,12 @@
 						<li><a href="#tls-hpkp"  title="HTTP Public Key Pinning">        <span>HPKP</span>          <em class="icon icon_2 https">Notice</em></a></li>
 					</ul>
 				</li>
-				<li><a href="#csp"    title="Content Security Policy">    <span>CSP</span>    <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#sri"    title="Subresource Integrity">      <span>SRI</span>    <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#xss"    title="Cross Site Scripting">       <span>XSS</span>    <em class="icon icon_3 https">Good</em>   </a></li>
-				<li><a href="#framed" title="Framed">                     <span>Framed</span> <em class="icon icon_2 https">Notice</em> </a></li>
-				<li><a href="#csrf"   title="Cross Site Request Forgery"> <span>CSRF</span>   <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#csp"     title="Content Security Policy">    <span>CSP</span>     <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#sri"     title="Subresource Integrity">      <span>SRI</span>     <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#xss"     title="Cross Site Scripting">       <span>XSS</span>     <em class="icon icon_3 https">Good</em>   </a></li>
+				<li><a href="#csrf"    title="Cross Site Request Forgery"> <span>CSRF</span>    <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#frames"  title="Frames">                     <span>Frames</span>  <em class="icon icon_2 https">Notice</em> </a></li>
+				<li><a href="#cookies" title="Cookies">                    <span>Cookies</span> <em class="icon icon_2 https">Notice</em> </a></li>
 			</ul>
 		</nav>
 		<section id="tls">
@@ -537,7 +538,51 @@
 			<p>Ideally your website would not have any XSS vulnerabilities anyway.</p>
 
 		</section>
-		<section id="framed">
+		<section id="csrf">
+
+			<h2>Cross Site Request Forgery</h2>
+
+			<div class="http_warning">
+				<p>This page was loaded over HTTP, so the content can be changed!</p>
+			</div>
+
+			<div class="resource">
+				<h4><em class="icon icon_open">+</em> Form 1: /admin/account/</h4>
+				<p><em class="icon icon_3">Good</em> Does appear to be protected using a hidden field:</p>
+				<ul>
+					<li>id = 123</li>
+					<li>action = edit</li>
+					<li>csrf = <strong>f3akwau92nma9s</strong> <button>Test</button></li>
+				</ul>
+			</div>
+
+			<div class="resource">
+				<h4><em class="icon icon_open">+</em> Form 2: /admin/account/</h4>
+				<p><em class="icon icon_2">Notice</em> Does not appear to include an appropriate hidden field:</p>
+				<ul>
+					<li>id = 123</li>
+					<li>action = delete</li>
+				</ul>
+			</div>
+
+			<div class="resource">
+				<h4><em class="icon icon_open">+</em> Form 3: /contact/</h4>
+				<p><em class="icon icon_1">Error</em> Does not include any hidden fields.</p>
+			</div>
+
+			<hr />
+
+			<p>Detection is based on the assumption that a hidden field must be present where its value cannot be guessed by another website.</p>
+			<p>While it is technically possible to protect with the referrer header, it is not recommended.</p>
+
+			<footer>
+				<ul>
+					<li>The "test" button could change the guessed CSRF field and submit the form - the result should be a failed submission.</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="frames">
 
 			<h2>Framed Content</h2>
 
@@ -579,46 +624,47 @@
 			</div>
 
 		</section>
-		<section id="csrf">
+		<section id="cookies">
 
-			<h2>Cross Site Request Forgery</h2>
+			<h2>Cookies</h2>
 
 			<div class="http_warning">
 				<p>This page was loaded over HTTP, so the content can be changed!</p>
 			</div>
 
-			<div class="resource">
-				<h4><em class="icon icon_open">+</em> Form 1: /admin/account/</h4>
-				<p><em class="icon icon_3">Good</em> Does appear to be protected using a hidden field:</p>
-				<ul>
-					<li>id = 123</li>
-					<li>action = edit</li>
-					<li>csrf = <strong>f3akwau92nma9s</strong> <button>Test</button></li>
-				</ul>
-			</div>
-
-			<div class="resource">
-				<h4><em class="icon icon_open">+</em> Form 2: /admin/account/</h4>
-				<p><em class="icon icon_2">Notice</em> Does not appear to include an appropriate hidden field:</p>
-				<ul>
-					<li>id = 123</li>
-					<li>action = delete</li>
-				</ul>
-			</div>
-
-			<div class="resource">
-				<h4><em class="icon icon_open">+</em> Form 3: /contact/</h4>
-				<p><em class="icon icon_1">Error</em> Does not include any hidden fields.</p>
-			</div>
+			<table>
+				<thead>
+					<th scope="col">&#xA0;</th>
+					<th scope="col" class="result">HTTP<br />Only</th>
+					<th scope="col" class="result">Secure<br />Only</th>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">session</th>
+						<td class="result"><em class="icon icon_3">Good</em></td>
+						<td class="result"><em class="icon icon_3">Good</em></td>
+					</tr>
+					<tr>
+						<th scope="row">username</th>
+						<td class="result"><em class="icon icon_2">Notice</em></td>
+						<td class="result"><em class="icon icon_3">Good</em></td>
+					</tr>
+					<tr>
+						<th scope="row">_ga</th>
+						<td class="result"><em class="icon icon_2">Notice</em></td>
+						<td class="result"><em class="icon icon_2">Notice</em></td>
+					</tr>
+				</tbody>
+			</table>
 
 			<hr />
 
-			<p>Detection is based on the assumption that a hidden field must be present where its value cannot be guessed by another website.</p>
-			<p>While it is technically possible to protect with the referrer header, it is not recommended.</p>
+			<p><strong>HTTP Only</strong>: Not accessible to JavaScript, and are only sent to/from the server.</p>
+			<p><strong>Secure Only</strong>: Only sent over HTTPS connections.</p>
 
 			<footer>
 				<ul>
-					<li>The "test" button could change the guessed CSRF field and submit the form - the result should be a failed submission.</li>
+					<li>Probably should link to the "Cookies" admin in the "Resources" tab.</li>
 				</ul>
 			</footer>
 
