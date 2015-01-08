@@ -10,8 +10,6 @@ How a "security" tab might work, using an [interactive demo](https://craigfranci
 
 [![Screenshot](https://raw.githubusercontent.com/craigfrancis/dev-security/master/resources/CSP.jpg)](https://craigfrancis.github.io/dev-security/)
 
----
-
 Inspiration from Joel, and Chris, on the Google Chrome [security-dev](https://groups.google.com/a/chromium.org/d/msg/security-dev/yifaG5bDr8Q/lHgsAGs-kEUJ) mailing list.
 
 Lucas also has some [notes](https://crbug.com/420813).
