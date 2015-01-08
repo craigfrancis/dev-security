@@ -21,15 +21,15 @@
 				<li>
 					<a href="#tls" title="Transport Layer Security"><span>TLS</span> <em class="icon icon_2 https">Notice</em></a>
 					<ul>
-						<li><a href="#tls-certs" title="Certificates">                   <span>Certificates</span> <em class="icon icon_1 https">Error</em></a></li>
-						<li><a href="#tls-hsts"  title="HTTP Strict Transport Security"> <span>HSTS</span>          <em class="icon icon_2 https">Notice</em></a></li>
-						<li><a href="#tls-hpkp"  title="HTTP Public Key Pinning">        <span>HPKP</span>          <em class="icon icon_2 https">Notice</em></a></li>
+						<li><a href="#tls-certs" title="Certificates">                   <span>Certificates</span> <em class="icon icon_2 https">Notice</em></a></li>
+						<li><a href="#tls-hsts"  title="HTTP Strict Transport Security"> <span>HSTS</span>         <em class="icon icon_2 https">Notice</em></a></li>
+						<li><a href="#tls-hpkp"  title="HTTP Public Key Pinning">        <span>HPKP</span>         <em class="icon icon_2 https">Notice</em></a></li>
 					</ul>
 				</li>
 				<li><a href="#csp"     title="Content Security Policy">    <span>CSP</span>     <em class="icon icon_1 https">Error</em>  </a></li>
 				<li><a href="#sri"     title="Subresource Integrity">      <span>SRI</span>     <em class="icon icon_1 https">Error</em>  </a></li>
 				<li><a href="#xss"     title="Cross Site Scripting">       <span>XSS</span>     <em class="icon icon_3 https">Good</em>   </a></li>
-				<li><a href="#csrf"    title="Cross Site Request Forgery"> <span>CSRF</span>    <em class="icon icon_1 https">Error</em>  </a></li>
+				<li><a href="#csrf"    title="Cross Site Request Forgery"> <span>CSRF</span>    <em class="icon icon_2 https">Notice</em>  </a></li>
 				<li><a href="#frames"  title="Frames">                     <span>Frames</span>  <em class="icon icon_2 https">Notice</em> </a></li>
 				<li><a href="#cookies" title="Cookies">                    <span>Cookies</span> <em class="icon icon_2 https">Notice</em> </a></li>
 			</ul>
@@ -157,7 +157,7 @@
 						<tr>
 							<td>3</td>
 							<td>
-								<span><em class="icon icon_1">Error</em> <strong class="warning">Extra download</strong> (already in trust store) - GeoTrust Global CA</span>
+								<span><em class="icon icon_2">Notice</em> <strong>Extra download</strong> (already in trust store) - GeoTrust Global CA</span>
 								<span class="indent">Fingerprint: de28f4a4ffe5b92fa3c503d1a349a7f9962a8212</span>
 								<span class="indent">RSA 2048 bits (e 65537) / SHA1withRSA</span>
 								<span class="indent"><em class="icon icon_2">Notice</em> Weak or insecure signature, but no impact on root certificate</span>
@@ -191,7 +191,7 @@
 						<tr>
 							<td>3</td>
 							<td>
-								<span><em class="icon icon_1">Error</em> <strong class="warning">Not provided</strong> - GeoTrust Global CA</span>
+								<span><em class="icon icon_2">Notice</em> <strong>Not provided</strong> (requires extra download) - GeoTrust Global CA</span>
 								<span class="indent">Fingerprint: 7359755c6df9a0abc3060bce369564c8ec4542a3</span>
 								<span class="indent">RSA 2048 bits (e 65537)	/ SHA1withRSA</span>
 								<span class="indent"><em class="icon icon_2">Notice</em> WEAK SIGNATURE</span>
@@ -297,6 +297,12 @@
 				<p><strong>Note</strong>: This example pins your current and backup keys for 30 days. Alternatively you could pin the root or intermediate certificates, which might allow you to re-issue a new certificate, but that assumes that your <abbr title="Certificate Authority">CA</abbr> will continue to use the same root/intermediate certificate, even if they have a problem.</p>
 
 			</div>
+
+			<footer>
+				<ul>
+					<li>The example sha256 pin "OtJOVJ9H..." can be worked out by the browser.</li>
+				</ul>
+			</footer>
 
 		</section>
 		<section id="csp">
@@ -567,7 +573,7 @@
 
 			<div class="resource">
 				<h4><em class="icon icon_open">+</em> Form 3: /contact/</h4>
-				<p><em class="icon icon_1">Error</em> Does not include any hidden fields.</p>
+				<p><em class="icon icon_2">Notice</em> Does not include any hidden fields.</p>
 			</div>
 
 			<hr />
