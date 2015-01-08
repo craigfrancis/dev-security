@@ -46,6 +46,21 @@
 
 				<table>
 					<tbody>
+						<tr class="connection">
+							<td><label for="connection">Connection</label></td>
+							<td>
+								<select id="connection">
+									<option>https://www.google.co.uk</option>
+									<option>https://www.googleapis.com</option>
+									<option>https://fonts.gstatic.com</option>
+									<option>https://www.google-analytics.com</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
 						<tr>
 							<td>Organisation</td>
 							<td>Google Inc</td>
@@ -115,6 +130,8 @@
 
 			<footer>
 				<ul>
+					<li>Need to consider all connections, the select field will need to show an indicator as well.</li>
+					<li>Link from "network" tab?</li>
 					<li>Prominent valid from/to dates.</li>
 					<li>Includes prompts to improve implementation (e.g. OCSP).</li>
 					<li>Could include cipher suite used.</li>
@@ -214,6 +231,7 @@
 
 			<footer>
 				<ul>
+					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>Includes an example where a root certificate is provided (path 1, cert 3).</li>
 					<li>Includes an example where an intermediate certificate is not included (path 2, cert 3).</li>
 					<li>Output inspired from <a href="https://www.ssllabs.com/ssltest/index.html">ssllabs.com</a>.</li>
@@ -246,6 +264,12 @@
 				</p>
 
 			</div>
+
+			<footer>
+				<ul>
+					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
+				</ul>
+			</footer>
 
 		</section>
 		<section id="tls-hpkp">
@@ -300,6 +324,7 @@
 
 			<footer>
 				<ul>
+					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>The example sha256 pin "OtJOVJ9H..." can be worked out by the browser.</li>
 				</ul>
 			</footer>

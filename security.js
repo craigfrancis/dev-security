@@ -19,10 +19,10 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 	$('#window section footer').hide();
 
-	$('#window nav a').click(function(e) {
+	function link_click(e) {
 
-		var link_ref = $(this),
-			link_href = link_ref.attr('href'),
+		var link_href = $(this).attr('href'),
+			link_ref = $('#window nav a[href="' + link_href + '"]'), // Support links in notes area.
 			link_text = link_ref.find('span').text(),
 			target = $(link_href),
 			notes_clone = target.find('footer').clone(),
@@ -39,6 +39,7 @@ if (window.location.host == 'craigfrancis.github.io') {
 			notes_ref.empty();
 			if (notes_clone.length > 0) {
 				notes_clone.show();
+				notes_clone.find('a[href^=#]').click(link_click);
 				notes_ref.empty().append(notes_heading, notes_clone);
 			}
 
@@ -53,7 +54,9 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 		}
 
-	});
+	}
+
+	$('#window nav a[href^=#]').click(link_click);
 
 	var hash = window.location.hash;
 	if (hash.match(/^#[a-z\-]+$/)) {
