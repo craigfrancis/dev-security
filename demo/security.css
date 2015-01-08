@@ -227,6 +227,10 @@
 		padding-right: 1em;
 	}
 
+	#window section#tls table tr.connection td {
+		vertical-align: middle;
+	}
+
 	#window section#tls-certs table.cert_path th:first-child,
 	#window section#tls-certs table.cert_path td:first-child {
 		width: 2em;
