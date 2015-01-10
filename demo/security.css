@@ -269,6 +269,13 @@
 		padding-top: 1em;
 	}
 
+	#window section#csp footer .example,
+	#notes footer.csp .example {
+		padding: 0.2em 0 1em 4em;
+		max-width: 63em;
+		text-indent: -2em;
+	}
+
 /*--------------------------------------------------*/
 /* Cookies                                          */
 

@@ -66,16 +66,24 @@
 							<td>Google Inc</td>
 						</tr>
 						<tr>
+							<td>Domains</td>
+							<td>
+								www.google.co.uk<br />
+								google.co.uk<br />
+								cdn.google.co.uk
+							</td>
+						</tr>
+						<tr>
 							<td>Certificate Authority</td>
 							<td>Google Internet Authority G2</td>
 						</tr>
 						<tr>
 							<td>Valid from</td>
-							<td>10 December 2014 11:44:30</td>
+							<td><time datetime="2014-10-10T12:44:30+01:00" title="10 October 2014, 11:44:30">10 October 2014</time></td>
 						</tr>
 						<tr>
 							<td>Valid to</td>
-							<td>10 March 2015 00:00:00</td>
+							<td><time datetime="2015-03-10T00:00:00+01:00" title="10 March 2015, 00:00:00">10 March 2015</time></td>
 						</tr>
 					</tbody>
 				</table>
@@ -92,12 +100,12 @@
 							<td>2, 3</td>
 						</tr>
 						<tr>
-							<td>Revocation information</td>
-							<td>CRL, OCSP</td>
-						</tr>
-						<tr>
 							<td>Key</td>
 							<td>RSA 2048 bits</td>
+						</tr>
+						<tr>
+							<td>Revocation information</td>
+							<td><em class="icon icon_3">Good</em> CRL, OCSP</td>
 						</tr>
 						<tr>
 							<td>Forward Secrecy</td>
@@ -125,13 +133,20 @@
 			</div>
 
 			<footer>
+				<h3>Features</h3>
 				<ul>
-					<li>Connection field to include good/notice/error state.</li>
-					<li>Connection field to highlight main connection.</li>
-					<li>Connection field to possibly count/list the resources using that connection.</li>
+					<li>Certificate information (especially start/end date), in an easy to view format.</li>
+					<li>Protocol versions (e.g. SSLv3 and POODLE).</li>
+					<li>Lists and validates revocation information.</li>
+					<li>Push (or reward) additional features, such as Forward Secrecy, Sessions, OCSP stapling.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Connection select field needs to include overall state (good/notice/error).</li>
+					<li>Connection select field needs to highlight main connection.</li>
+					<li>Connection select field needs to count (or list) the resources using that connection.</li>
 					<li>Possibly link from <a href="./img/network.png">network tab</a>.</li>
-					<li>Prominent valid from/to dates.</li>
-					<li>Includes prompts to improve implementation (e.g. OCSP).</li>
+					<li>Possibly don't display the valid from/to time (shorter).</li>
 					<li>Could include cipher suite used.</li>
 				</ul>
 			</footer>
@@ -146,6 +161,8 @@
 			</div>
 
 			<div class="https">
+
+				<p>Certificate packet size: <strong>10,047</strong> bytes.</p>
 
 				<h3>Path #1 Trusted</h3>
 
@@ -228,10 +245,18 @@
 			</div>
 
 			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Show initial packet size, to help reduce round trips (ideally less than 10KB on a server with an IW10).</li>
+					<li>List paths, fingerprints, etc.</li>
+					<li>Identifies weak signatures (SHA1).</li>
+					<li>Identifies missing intermediate certificates (requiring browser to download separately).</li>
+					<li>Identifies extra root certificate (adding to overall packet size).</li>
+					<li>Help debug connection errors (e.g. accidentally using the intermediate cert for the main cert).</li>
+				</ul>
+				<h3>Notes</h3>
 				<ul>
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
-					<li>Includes an example where a root certificate is provided (path 1, cert 3).</li>
-					<li>Includes an example where an intermediate certificate is not included (path 2, cert 3).</li>
 					<li>Output inspired from <a href="https://www.ssllabs.com/ssltest/index.html">ssllabs.com</a>.</li>
 				</ul>
 			</footer>
@@ -247,11 +272,11 @@
 
 			<div class="https">
 
-				<p>Instruct browsers to always use HTTPS connections.</p>
+				<p>Instructs browsers to always use HTTPS connections.</p>
 
 				<div class="value">
-					<p><em class="icon icon_2">Notice</em> HTTP website does not 301 redirect to HTTPS.</p>
-					<p><em class="icon icon_2">Notice</em> Header not specified (see below).</p>
+					<p><em class="icon icon_3">Good</em> HTTP website does a 301 redirect to HTTPS.</p>
+					<p><em class="icon icon_2">Notice</em> HSTS header not sent (see below).</p>
 					<p><em class="icon icon_2">Notice</em> Not included in this browsers preload list (<a href="https://hstspreload.appspot.com/">add</a>).</p>
 				</div>
 
@@ -264,9 +289,17 @@
 			</div>
 
 			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Checks HTTP website does a 301 redirect to HTTPS.</li>
+					<li>Checks header was sent.</li>
+					<li>Checks presence in browsers preload list (might not be necessary).</li>
+					<li>Give example header to copy/paste (don't think there is any risk in this, as HTTPS is working).</li>
+				</ul>
+				<h3>Notes</h3>
 				<ul>
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
-					<li>List when requests are rerouted due to HSTS (<a href="https://crbug.com/160571">Chrome issue 160571</a>), also shown in Console?</li>
+					<li>List when requests are rerouted due to HSTS (<a href="https://crbug.com/160571">Chrome issue 160571</a>) - also shown in Console.</li>
 				</ul>
 			</footer>
 
@@ -281,10 +314,11 @@
 
 			<div class="https">
 
-				<p>Identify invalid certificates for this domain.</p>
+				<p>Identifies and blocks invalid certificates for this domain.</p>
 
 				<div class="value">
-					<p><em class="icon icon_2">Notice</em> Header not specified.</p>
+					<p><em class="icon icon_2">Notice</em> HSTS header not sent (<a href="#tls-hsts">setup</a>).</p>
+					<p><em class="icon icon_2">Notice</em> HPKP header not sent.</p>
 				</div>
 
 				<p>If you want to limit the valid certificates for your domain, follow the instructions below.</p>
@@ -322,8 +356,16 @@
 			</div>
 
 			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Checks header was sent.</li>
+					<li>Give instructions on how to create a backup key (important).</li>
+					<li>Give example header to copy/paste (current public key is already known, so can be pre-filled).</li>
+				</ul>
+				<h3>Notes</h3>
 				<ul>
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
+					<li>Should we also complain if missing HSTS?</li>
 					<li>The example sha256 pin "OtJOVJ9H..." can be worked out by the browser.</li>
 				</ul>
 			</footer>
@@ -377,7 +419,7 @@
 					</tr>
 
 					<tr>
-						<th rowspan="9" scope="row">script-src</th>
+						<th rowspan="10" scope="row">script-src</th>
 						<td class="value"><em class="icon icon_open">+</em> 'self'</td>
 						<td class="help"><em class="icon icon_3">Good</em> Can you specify /a/js/ as a path?</td>
 					</tr>
@@ -398,8 +440,11 @@
 						<td colspan="2">https://www.google-analytics.com/analytics.js</td>
 					</tr>
 					<tr>
-						<td class="value"><em class="icon icon_closed">-</em> https://*.googleapis.com</td>
-						<td class="help"><em class="icon icon_3">Good</em> Can you specify a path, and remove wildcard?</td>
+						<td class="value"><em class="icon icon_open">+</em> https://*.googleapis.com</td>
+						<td class="help"><em class="icon icon_2">Notice</em> Not used on this page.</td>
+					</tr>
+					<tr class="usage">
+						<td colspan="2">N/A</td>
 					</tr>
 					<tr>
 						<td class="value"><em class="icon icon_closed">-</em> '<em class="warning">unsafe-inline</em>'</td>
@@ -488,12 +533,27 @@
 			</table>
 
 			<footer>
+				<h3>Features</h3>
 				<ul>
-					<li>View the <a href="http://www.w3.org/TR/CSP2/">CSP2 Spec</a>, or the <a href="http://w3c.github.io/webappsec/specs/content-security-policy/">CSP3 Draft</a>.</li>
-					<li>Errors still shown in the console.</li>
-					<li>Lists resources that were requested under the appropriate directive.</li>
-					<li>In this example the "Defaults" show 'none', because the default-src is set to 'none'.</li>
 					<li>If no CSP header was sent, propose one the developer could use.</li>
+					<li>
+						Uses a presentable layout, making it much easier to read than the plain text header, e.g.
+						<div class="example"><code>Content-Security-Policy: default-src 'none'; connect-src 'self'; style-src 'self' fonts.googleapis.com 'unsafe-inline' s7.addthis.com; font-src 'self' fonts.gstatic.com; img-src 'self' https://www.google-analytics.com *.disqus.com *.disquscdn.com s7.addthis.com data:; script-src 'self' https://www.google-analytics.com *.disqus.com * disquscdn.com s7.addthis.com 'unsafe-eval'; frame-src disqus.com s7.addthis.com; frame-ancestors 'none'; reflected-xss block;</code></div>
+					</li>
+					<li>Lists the sources, one per line (did you notice the typo with the disquscdn.com script-src?)</li>
+					<li>Lists the unspecified directives, and what they default to (e.g. form-action).</li>
+					<li>Lists how resources match the sources (identifies unused sources).</li>
+					<li>Identify when resources can match more than one source (e.g. a rouge *).</li>
+					<li>Prompt the developer to be more specific (e.g. all script resources shared a common path).</li>
+					<li>Prompt the developer to avoid 'unsafe-' sources (error or notice? probably ok with <a href="http://www.w3.org/TR/CSP2/#directive-script-src">nonce/hash</a>).</li>
+					<li>If the developer is using a <a href="http://www.w3.org/TR/CSP2/#script-src-the-nonce-attribute">nonce</a>, perhaps request the page again to see if it changes? risky?</li>
+					<li>Reinforce good decisions.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Errors still shown in the console.</li>
+					<li>In this example the defaults show 'none', because the default-src is set to 'none'.</li>
+					<li>View the <a href="http://www.w3.org/TR/CSP2/">CSP2 Spec</a>, or the <a href="http://w3c.github.io/webappsec/specs/content-security-policy/">CSP3 Draft</a>.</li>
 				</ul>
 			</footer>
 
@@ -537,10 +597,17 @@
 			</div>
 
 			<footer>
+				<h3>Features</h3>
 				<ul>
-					<li>View the <a href="http://www.w3.org/TR/SRI/">SRI Spec</a>.</li>
+					<li>Lists all external resources (probably not from the same domain).</li>
+					<li>Downloads and checks the hash for main and noncanonical resources.</li>
+					<li>Warn developers that ISPs will edit content sent over HTTP (<a href="https://groups.google.com/a/chromium.org/d/msg/security-dev/hJwYZOOPaH4/SmCVRdMBLI0J">concerns raised by Joel and Chris</a>).</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Errors still shown in the console.</li>
 					<li>Ensure developers don't think that loading resources over HTTP, with an integrity check, is acceptable.</li>
-					<li>All errors should still be shown in the console.</li>
+					<li>View the <a href="http://www.w3.org/TR/SRI/">SRI Spec</a>.</li>
 				</ul>
 			</footer>
 
@@ -554,18 +621,29 @@
 			</div>
 
 			<div class="value">
-				<h4>Content Security Policy</h4>
-				<p><em class="icon icon_3">Good</em> reflected-xss = block</p>
-			</div>
-			<div class="value">
 				<h4>Header</h4>
 				<p><em class="icon icon_3">Good</em> X-XSS-Protection: 1; mode=block</p>
+			</div>
+			<div class="value">
+				<h4>Content Security Policy</h4>
+				<p><em class="icon icon_3">Good</em> reflected-xss = block (<a href="#csp">review</a>)</p>
 			</div>
 
 			<hr />
 
 			<p>This only instructs the browser to look for (and try to block) reflected XSS attacks.</p>
 			<p>Ideally your website would not have any XSS vulnerabilities anyway.</p>
+
+			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Checks headers were sent.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Reinforce that this is the browser guessing and blocking, not a fix all.</li>
+				</ul>
+			</footer>
 
 		</section>
 		<section id="csrf">
@@ -600,14 +678,30 @@
 				<p><em class="icon icon_2">Notice</em> Does not include any hidden fields.</p>
 			</div>
 
+			<div class="resource">
+				<h4><em class="icon icon_open">+</em> Links:</h4>
+				<ul>
+					<li>/admin/logout/</li>
+				</ul>
+			</div>
+
 			<hr />
 
 			<p>Detection is based on the assumption that a hidden field must be present where its value cannot be guessed by another website.</p>
 			<p>While it is technically possible to protect with the referrer header, it is not recommended.</p>
 
 			<footer>
+				<h3>Features</h3>
 				<ul>
-					<li>The "test" button could change the guessed CSRF field and submit the form - the result should be a failed submission.</li>
+					<li>Lists all forms on the page, their action, and any hidden inputs.</li>
+					<li>Next to each field that looks like a CSRF value, include a button to change it, and submit the form.</li>
+					<li>Lists all links on the page, not ideal, but need to reinforce that these can be vulnerable as well.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Reinforce that this is the browser guessing, and you really should test it.</li>
+					<li>Will not identify any CSRF vulnerable links (e.g. a "logout" link).</li>
+					<li>Also note that a browser may prefetch pages, so not use a "delete" link (use a form).</li>
 				</ul>
 			</footer>
 
@@ -621,12 +715,13 @@
 			</div>
 
 			<div class="value">
-				<h4>Content Security Policy</h4>
-				<p><em class="icon icon_2">Notice</em> frame-ancestors = 'self'</p>
-			</div>
-			<div class="value">
 				<h4>Header</h4>
 				<p><em class="icon icon_2">Notice</em> X-Frame-Options: SAMEORIGIN</p>
+			</div>
+
+			<div class="value">
+				<h4>Content Security Policy</h4>
+				<p><em class="icon icon_2">Notice</em> frame-ancestors = 'self' (<a href="#csp">review</a>)</p>
 			</div>
 
 			<p>As the page isn't loaded in a frame, could it be DENY?</p>
@@ -652,6 +747,24 @@
 				<p><em class="icon icon_2">Notice</em> <strong>Restrictions</strong>: Not set, would ideally be "ALLOW-FROM uri"</p>
 				<p><em class="icon icon_2">Notice</em> <strong>Sandbox</strong>: Not set, would ideally have some restrictions.</p>
 			</div>
+
+			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Checks headers were sent (i.e. can this page be framed).</li>
+					<li>Prompt the developer to use something more strict (e.g. DENY).</li>
+					<li>Lists each frame/iframe on the page, and show:
+						<ul>
+							<li>If they had the appropriate headers sent.</li>
+							<li>If they have the sandbox attribute set.</li>
+						</ul>
+					</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Possibly suggest the <a href="http://www.w3.org/TR/html5/embedded-content-0.html#attr-iframe-sandbox">sandbox attribute</a> values to use.</li>
+				</ul>
+			</footer>
 
 		</section>
 		<section id="cookies">
@@ -693,8 +806,14 @@
 			<p><strong>Secure Only</strong>: Only sent over HTTPS connections.</p>
 
 			<footer>
+				<h3>Features</h3>
 				<ul>
-					<li>Probably should link to the "Cookies" admin in the "Resources" tab.</li>
+					<li>Only lists if the cookies are HTTP Only and Secure Only.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Should link to the "Cookies" page in the "Resources" tab.</li>
+					<li>Only included here to remind developers about cookie security.</li>
 				</ul>
 			</footer>
 
