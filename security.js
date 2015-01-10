@@ -19,14 +19,13 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 	$('#window section footer').hide();
 
-	function link_click(e) {
+	$('#window a[href^=#]').click(function(e) {
 
 		var link_href = $(this).attr('href'),
 			link_ref = $('#window nav a[href="' + link_href + '"]'), // Support links in notes area.
 			link_text = link_ref.find('span').text(),
 			target = $(link_href),
-			notes_clone = target.find('footer').clone(),
-			notes_heading = $('<h2>').text(link_text + ' Notes');
+			notes_clone = target.find('footer').clone(true);
 
 		if (target.length == 1) {
 
@@ -38,9 +37,10 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 			notes_ref.empty();
 			if (notes_clone.length > 0) {
+				notes_clone.addClass(link_href.substr(1));
 				notes_clone.show();
-				notes_clone.find('a[href^=#]').click(link_click);
-				notes_ref.empty().append(notes_heading, notes_clone);
+				// notes_clone.find('h3').prepend(link_text + ' '); // Avoid "Frames Notes" (singular)
+				notes_ref.empty().append(notes_clone);
 			}
 
 			if ('replaceState' in history) {
@@ -54,9 +54,7 @@ if (window.location.host == 'craigfrancis.github.io') {
 
 		}
 
-	}
-
-	$('#window nav a[href^=#]').click(link_click);
+	});
 
 	var hash = window.location.hash;
 	if (hash.match(/^#[a-z\-]+$/)) {
