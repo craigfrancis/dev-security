@@ -28,8 +28,8 @@
 				</li>
 				<li><a href="#csp"     title="Content Security Policy">    <span>CSP</span>     <em class="icon icon_1 https">Error</em>  </a></li>
 				<li><a href="#sri"     title="Subresource Integrity">      <span>SRI</span>     <em class="icon icon_1 https">Error</em>  </a></li>
-				<li><a href="#xss"     title="Cross Site Scripting">       <span>XSS</span>     <em class="icon icon_3 https">Good</em>   </a></li>
 				<li><a href="#csrf"    title="Cross Site Request Forgery"> <span>CSRF</span>    <em class="icon icon_2 https">Notice</em>  </a></li>
+				<li><a href="#xss"     title="Cross Site Scripting">       <span>XSS</span>     <em class="icon icon_3 https">Good</em>   </a></li>
 				<li><a href="#frames"  title="Frames">                     <span>Frames</span>  <em class="icon icon_2 https">Notice</em> </a></li>
 				<li><a href="#cookies" title="Cookies">                    <span>Cookies</span> <em class="icon icon_2 https">Notice</em> </a></li>
 			</ul>
@@ -612,40 +612,6 @@
 			</footer>
 
 		</section>
-		<section id="xss">
-
-			<h2>Cross Site Scripting</h2>
-
-			<div class="http_warning">
-				<p>This page was loaded over HTTP, so the content can be changed!</p>
-			</div>
-
-			<div class="value">
-				<h4>Header</h4>
-				<p><em class="icon icon_3">Good</em> X-XSS-Protection: 1; mode=block</p>
-			</div>
-			<div class="value">
-				<h4>Content Security Policy</h4>
-				<p><em class="icon icon_3">Good</em> reflected-xss = block (<a href="#csp">review</a>)</p>
-			</div>
-
-			<hr />
-
-			<p>This only instructs the browser to look for (and try to block) reflected XSS attacks.</p>
-			<p>Ideally your website would not have any XSS vulnerabilities anyway.</p>
-
-			<footer>
-				<h3>Features</h3>
-				<ul>
-					<li>Checks headers were sent.</li>
-				</ul>
-				<h3>Notes</h3>
-				<ul>
-					<li>Reinforce that this is the browser guessing and blocking, not a fix all.</li>
-				</ul>
-			</footer>
-
-		</section>
 		<section id="csrf">
 
 			<h2>Cross Site Request Forgery</h2>
@@ -702,6 +668,40 @@
 					<li>Reinforce that this is the browser guessing, and you really should test it.</li>
 					<li>Will not identify any CSRF vulnerable links (e.g. a "logout" link).</li>
 					<li>Also note that a browser may prefetch pages, so not use a "delete" link (use a form).</li>
+				</ul>
+			</footer>
+
+		</section>
+		<section id="xss">
+
+			<h2>Cross Site Scripting</h2>
+
+			<div class="http_warning">
+				<p>This page was loaded over HTTP, so the content can be changed!</p>
+			</div>
+
+			<div class="value">
+				<h4>Header</h4>
+				<p><em class="icon icon_3">Good</em> X-XSS-Protection: 1; mode=block</p>
+			</div>
+			<div class="value">
+				<h4>Content Security Policy</h4>
+				<p><em class="icon icon_3">Good</em> reflected-xss = block (<a href="#csp">review</a>)</p>
+			</div>
+
+			<hr />
+
+			<p>This only instructs the browser to look for (and try to block) reflected XSS attacks.</p>
+			<p>Ideally your website would not have any XSS vulnerabilities anyway.</p>
+
+			<footer>
+				<h3>Features</h3>
+				<ul>
+					<li>Checks headers were sent.</li>
+				</ul>
+				<h3>Notes</h3>
+				<ul>
+					<li>Reinforce that this is the browser guessing and blocking, not a fix all.</li>
 				</ul>
 			</footer>
 
