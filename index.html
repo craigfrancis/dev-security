@@ -149,6 +149,24 @@
 					<li>Possibly don't display the valid from/to time (shorter).</li>
 					<li>Could include cipher suite used.</li>
 				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/network-tab-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/network-tab-mockup1.jpg" alt="Chrome Network Tab Mockup 1" width="445" height="210" class="screenshot" /></a></p>
+						<p><a href="./img/alternatives/chrome/network-tab-mockup2.jpg" target="_blank"><img src="./img/alternatives/chrome/network-tab-mockup2.jpg" alt="Chrome Network Tab Mockup 2" width="445" height="210" class="screenshot" /></a></p>
+						<p>A mockup showing an alternative location, with Annotations to highlight possible issues.</p>
+						<p>Should note that the network tab is resource (not connection) based, where resources can re-use connections.</p>
+						<p>For auditing purposes, you could use the "Connection ID" column.</p>
+					</li>
+					<li>
+						<h4>Firefox</h4>
+						<p><a href="./img/alternatives/firefox/security-panel.png" target="_blank"><img src="./img/alternatives/firefox/security-panel.png" alt="Firefox Security Panel" width="495" height="204" class="screenshot" /></a></p>
+						<p><a href="./img/alternatives/firefox/sha1-warning.png" target="_blank"><img src="./img/alternatives/firefox/sha1-warning.png" alt="Firefox SHA1 Warning" width="503" height="110" class="screenshot" /></a></p>
+						<p>Does show certificate information, protocol versions, and promotes the use of HSTS/HPKP.</p>
+						<p>Does not list and validate revocation information (CRL/OCSP), or promote additional features (OCSP stapling, TLS sessions, etc).</p>
+					</li>
+				</ul>
 			</footer>
 
 		</section>
@@ -259,6 +277,14 @@
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>Output inspired from <a href="https://www.ssllabs.com/ssltest/index.html">ssllabs.com</a>.</li>
 				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Firefox</h4>
+						<p><a href="./img/alternatives/firefox/security-panel.png" target="_blank"><img src="./img/alternatives/firefox/security-panel.png" alt="Firefox Security Panel" width="495" height="204" class="screenshot" /></a></p>
+						<p>Could include these features, but might be too much information?</p>
+					</li>
+				</ul>
 			</footer>
 
 		</section>
@@ -300,6 +326,20 @@
 				<ul>
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>List when requests are rerouted due to HSTS (<a href="https://crbug.com/160571">Chrome issue 160571</a>) - also shown in Console.</li>
+				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Firefox</h4>
+						<p><a href="./img/alternatives/firefox/security-panel.png" target="_blank"><img src="./img/alternatives/firefox/security-panel.png" alt="Firefox Security Panel" width="495" height="204" class="screenshot" /></a></p>
+						<p>Does show the use of HSTS.</p>
+						<p>Does not:</p>
+						<ul>
+							<li>Check 301 redirect for a HTTP connection (risk of making too many requests?).</li>
+							<li>Shows if the domain is in the browsers preload list (which won't scale to every website on the internet).</li>
+							<li>Include an example header to use (could be risky having them copy/paste, but probably less so than from a random website).</li>
+						</ul>
+					</li>
 				</ul>
 			</footer>
 
@@ -367,6 +407,15 @@
 					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>Should we also complain if missing HSTS?</li>
 					<li>The example sha256 pin "OtJOVJ9H..." can be worked out by the browser.</li>
+				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Firefox</h4>
+						<p><a href="./img/alternatives/firefox/security-panel.png" target="_blank"><img src="./img/alternatives/firefox/security-panel.png" alt="Firefox Security Panel" width="495" height="204" class="screenshot" /></a></p>
+						<p>Does show the use of HPKP.</p>
+						<p>Does not include an example, or warnings about this feature.</p>
+					</li>
 				</ul>
 			</footer>
 
@@ -555,6 +604,15 @@
 					<li>In this example the defaults show 'none', because the default-src is set to 'none'.</li>
 					<li>View the <a href="http://www.w3.org/TR/CSP2/">CSP2 Spec</a>, or the <a href="http://w3c.github.io/webappsec/specs/content-security-policy/">CSP3 Draft</a>.</li>
 				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/network-tab-mockup3.jpg" target="_blank"><img src="./img/alternatives/chrome/network-tab-mockup3.jpg" alt="Chrome Network Tab Mockup 3" width="445" height="210" class="screenshot" /></a></p>
+						<p>A mockup showing the CSP information (probably no feedback) in the Network tab.</p>
+						<p>Either highlight the selected resource, or only show this tab for the HTML documents that specify a CSP header.</p>
+					</li>
+				</ul>
 			</footer>
 
 		</section>
@@ -608,6 +666,14 @@
 					<li>Errors still shown in the console.</li>
 					<li>Ensure developers don't think that loading resources over HTTP, with an integrity check, is acceptable.</li>
 					<li>View the <a href="http://www.w3.org/TR/SRI/">SRI Spec</a>.</li>
+				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/elements-tab-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/elements-tab-mockup1.jpg" alt="Chrome Elements Tab Mockup 1" width="445" height="221" class="screenshot" /></a></p>
+						<p>Could possibly go into the Elements tab, using annotations.</p>
+					</li>
 				</ul>
 			</footer>
 
@@ -669,6 +735,14 @@
 					<li>Will not identify any CSRF vulnerable links (e.g. a "logout" link).</li>
 					<li>Also note that a browser may prefetch pages, so not use a "delete" link (use a form).</li>
 				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/elements-tab-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/elements-tab-mockup1.jpg" alt="Chrome Elements Tab Mockup 1" width="445" height="221" class="screenshot" /></a></p>
+						<p>Could possibly go into the Elements tab, using annotations.</p>
+					</li>
+				</ul>
 			</footer>
 
 		</section>
@@ -702,6 +776,14 @@
 				<h3>Notes</h3>
 				<ul>
 					<li>Reinforce that this is the browser guessing and blocking, not a fix all.</li>
+				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/elements-tab-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/elements-tab-mockup1.jpg" alt="Chrome Elements Tab Mockup 1" width="445" height="221" class="screenshot" /></a></p>
+						<p>Could possibly go into the Elements tab, using annotations.</p>
+					</li>
 				</ul>
 			</footer>
 
@@ -764,6 +846,14 @@
 				<ul>
 					<li>Possibly suggest the <a href="http://www.w3.org/TR/html5/embedded-content-0.html#attr-iframe-sandbox">sandbox attribute</a> values to use.</li>
 				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/elements-tab-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/elements-tab-mockup1.jpg" alt="Chrome Elements Tab Mockup 1" width="445" height="221" class="screenshot" /></a></p>
+						<p>Could possibly go into the Elements tab, using annotations.</p>
+					</li>
+				</ul>
 			</footer>
 
 		</section>
@@ -814,6 +904,15 @@
 				<ul>
 					<li>Should link to the "Cookies" page in the "Resources" tab.</li>
 					<li>Only included here to remind developers about cookie security.</li>
+				</ul>
+				<h3>Alternatives</h3>
+				<ul>
+					<li>
+						<h4>Chrome</h4>
+						<p><a href="./img/alternatives/chrome/cookies-mockup1.jpg" target="_blank"><img src="./img/alternatives/chrome/cookies-mockup1.jpg" alt="Chrome Cookies Mockup 1" width="445" height="131" class="screenshot" /></a></p>
+						<p>Could possibly go into the Resources tab, using annotations.</p>
+						<p>Does require the developer to go looking for this information.</p>
+					</li>
 				</ul>
 			</footer>
 

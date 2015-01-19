@@ -4,6 +4,7 @@
 	html {
 		font: 13px "Lucida Grande";
 		font: menu;
+		padding-bottom: 1em; /* Space for the browsers floating status bar */
 	}
 
 	h1 {
@@ -211,8 +212,18 @@
 		padding-left: 14px;
 	}
 
-	#window section footer {
+	#window footer {
 		border-top: 2px solid #000;
+	}
+
+	#window footer h4,
+	#notes footer h4 {
+		font-size: 1em;
+		margin: 0 0 1em 0;
+	}
+
+	#notes footer img.screenshot {
+		border: 1px solid #A3A3A3;
 	}
 
 /*--------------------------------------------------*/
