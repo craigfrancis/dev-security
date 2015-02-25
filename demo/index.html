@@ -44,12 +44,12 @@
 
 			<div class="https">
 
-				<table>
+				<table class="connection">
 					<tbody>
-						<tr class="connection">
-							<td><label for="connection">Connection</label></td>
+						<tr>
+							<td><label for="connection1">Connection</label></td>
 							<td>
-								<select id="connection">
+								<select id="connection1">
 									<option>https://www.google.co.uk</option>
 									<option>https://www.googleapis.com</option>
 									<option>https://fonts.gstatic.com</option>
@@ -180,6 +180,22 @@
 
 			<div class="https">
 
+				<table class="connection">
+					<tbody>
+						<tr>
+							<td><label for="connection2">Connection</label></td>
+							<td>
+								<select id="connection2">
+									<option>https://www.google.co.uk</option>
+									<option>https://www.googleapis.com</option>
+									<option>https://fonts.gstatic.com</option>
+									<option>https://www.google-analytics.com</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
 				<p>Certificate packet size: <strong>10,047</strong> bytes.</p>
 
 				<h3>Path #1 Trusted</h3>
@@ -274,7 +290,6 @@
 				</ul>
 				<h3>Notes</h3>
 				<ul>
-					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>Output inspired from <a href="https://www.ssllabs.com/ssltest/index.html">ssllabs.com</a>.</li>
 				</ul>
 				<h3>Alternatives</h3>
@@ -297,6 +312,22 @@
 			</div>
 
 			<div class="https">
+
+				<table class="connection">
+					<tbody>
+						<tr>
+							<td><label for="connection3">Connection</label></td>
+							<td>
+								<select id="connection3">
+									<option>https://www.google.co.uk</option>
+									<option>https://www.googleapis.com</option>
+									<option>https://fonts.gstatic.com</option>
+									<option>https://www.google-analytics.com</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
 				<p>Instructs browsers to always use HTTPS connections.</p>
 
@@ -324,7 +355,6 @@
 				</ul>
 				<h3>Notes</h3>
 				<ul>
-					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>List when requests are rerouted due to HSTS (<a href="https://crbug.com/160571">Chrome issue 160571</a>) - also shown in Console.</li>
 				</ul>
 				<h3>Alternatives</h3>
@@ -353,6 +383,22 @@
 			</div>
 
 			<div class="https">
+
+				<table class="connection">
+					<tbody>
+						<tr>
+							<td><label for="connection4">Connection</label></td>
+							<td>
+								<select id="connection4">
+									<option>https://www.google.co.uk</option>
+									<option>https://www.googleapis.com</option>
+									<option>https://fonts.gstatic.com</option>
+									<option>https://www.google-analytics.com</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
 				<p>Identifies and blocks invalid certificates for this domain.</p>
 
@@ -404,7 +450,6 @@
 				</ul>
 				<h3>Notes</h3>
 				<ul>
-					<li>Need to consider all connections (see the main <a href="#tls">TLS</a> page).</li>
 					<li>Should we also complain if missing HSTS?</li>
 					<li>The example sha256 pin "OtJOVJ9H..." can be worked out by the browser.</li>
 				</ul>
@@ -871,22 +916,26 @@
 					<th scope="col">&#xA0;</th>
 					<th scope="col" class="result">HTTP<br />Only</th>
 					<th scope="col" class="result">Secure<br />Only</th>
+					<th scope="col">&#xA0;</th>
 				</thead>
 				<tbody>
 					<tr>
 						<th scope="row">session</th>
 						<td class="result"><em class="icon icon_3">Good</em></td>
-						<td class="result"><em class="icon icon_3">Good</em></td>
+						<td class="result"><em class="icon icon_3 https">Good</em></td>
+						<td>&#xA0;</td>
 					</tr>
 					<tr>
 						<th scope="row">username</th>
 						<td class="result"><em class="icon icon_2">Notice</em></td>
-						<td class="result"><em class="icon icon_3">Good</em></td>
+						<td class="result"><em class="icon icon_3 https">Good</em></td>
+						<td>&#xA0;</td>
 					</tr>
 					<tr>
 						<th scope="row">_ga</th>
 						<td class="result"><em class="icon icon_2">Notice</em></td>
-						<td class="result"><em class="icon icon_2">Notice</em></td>
+						<td class="result"><em class="icon icon_1 https">Error</em></td>
+						<td><div class="https">Cookies should be marked as Secure over HTTPS connections (<a href="https://crbug.com/149962">more info</a>)</div></td>
 					</tr>
 				</tbody>
 			</table>
@@ -905,6 +954,7 @@
 				<ul>
 					<li>Should link to the "Cookies" page in the "Resources" tab.</li>
 					<li>Only included here to remind developers about cookie security.</li>
+					<li>Third party cookies should probably not effect the nav icon.</li>
 				</ul>
 				<h3>Alternatives</h3>
 				<ul>
