@@ -227,6 +227,16 @@
 	}
 
 /*--------------------------------------------------*/
+/* Connection                                       */
+
+	#window table.connection td:first-child {
+		width: 16em;
+		text-align: right;
+		padding-right: 1em;
+		vertical-align: middle;
+	}
+
+/*--------------------------------------------------*/
 /* TLS                                              */
 
 	#window section#tls table th:first-child,
@@ -236,10 +246,6 @@
 		width: 16em;
 		text-align: right;
 		padding-right: 1em;
-	}
-
-	#window section#tls table tr.connection td {
-		vertical-align: middle;
 	}
 
 	#window section#tls-certs table.cert_path th:first-child,
